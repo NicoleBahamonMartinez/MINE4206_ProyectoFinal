@@ -6,24 +6,8 @@ st.subheader("Usabilidad Datos Abiertos")
 
 with st.form("Métricas Dataset"):
    st.text_input("Nombre Dataset:")
-   st.number_input('Confidencialidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Relevancia :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Actualidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Trazabilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Conformidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Exactitudsintactica :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Exactitudsemantica :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Completitud :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Consistencia :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Precision :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Portabilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Credibilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Comprensibilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Accesibilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Eficiencia :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Recuperabilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Disponibilidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
-   st.number_input('Unicidad :', min_value = 0, max_value = 10, step = 1.,format = "%.2f")
+   st.number_input('Confidencialidad :', min_value = 0, max_value = 10, step = .01, format = "%.2f")
+
 
    # Every form must have a submit button.
    submitted = st.form_submit_button("Calcular")
