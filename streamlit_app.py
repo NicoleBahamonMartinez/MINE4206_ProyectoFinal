@@ -8,8 +8,8 @@ def predict(data):
     # return clf.predict(data)
     return sum(data)/17
 
-col1, col2 = st.columns([0.25,0.10])
-col1.image('images\mintic.png')
+# col1, col2 = st.columns([0.25,0.10])
+# col1.image('MINE4206_ProyectoFinal\images\mintic.png')
 
 
 st.title("Proyecto Final: Análisis con Machine Learning")
