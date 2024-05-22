@@ -113,7 +113,7 @@ class StreamlitApp:
                     st.error("Algo salió mal", icon="🚨")
     
     def render_csv_form(self):
-        st.subheader("Cargar CSV con las califcaciones de calidad")
+        st.subheader("Cargar CSV con las calificaciones de calidad")
         csv_file = st.file_uploader("Sube un archivo CSV", type=["csv"])
         if csv_file:
             df = pd.read_csv(csv_file, sep=';')
