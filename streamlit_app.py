@@ -28,6 +28,9 @@ class StreamlitApp:
         self.metricas = [None] * 18
 
     def run(self):
+        col1, col2 = st.columns([0.25,0.10])
+        col1.image('./images/mintic.png')
+        col1.image('./images/mintic.png')
         st.title("Proyecto Final: Análisis con Machine Learning")
         st.subheader("Usabilidad Datos Abiertos")
         self.render_forms()
