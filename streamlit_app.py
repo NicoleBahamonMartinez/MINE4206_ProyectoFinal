@@ -6,7 +6,11 @@ import numpy as np
 def predict(data):
     # clf = joblib.load(“rf_model.sav”)
     # return clf.predict(data)
-    return sum(data)/10
+    return sum(data)/17
+
+# col1, col2 = st.columns([0.25,0.10])
+# col1.image('MINE4206_ProyectoFinal\images\mintic.png')
+
 
 st.title("Proyecto Final: Análisis con Machine Learning")
 
@@ -16,6 +20,7 @@ with st.form("Métricas Dataset", clear_on_submit = False):
 
   Nombre = st.text_input("Nombre Dataset:")
   c1, c2, c3 = st.columns(3)
+  
   metricas = [None] * 18
   with c1:
     metricas[0] = st.number_input('Confidencialidad :', min_value = 0.0, max_value = 10.0, format = "%.2f", step = 0.01,  )
