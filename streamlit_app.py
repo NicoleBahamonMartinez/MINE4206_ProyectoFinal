@@ -115,6 +115,7 @@ class StreamlitApp:
     def render_csv_form(self):
         st.subheader("Cargar CSV con las calificaciones de calidad")
         csv_file = st.file_uploader("Sube un archivo CSV", type=["csv"])
+        
         if csv_file:
             df = pd.read_csv(csv_file, sep=';')
             print(df)
