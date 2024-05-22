@@ -28,14 +28,15 @@ class StreamlitApp:
         self.metricas = [None] * 18
 
     def run(self):
-        col1, col2 = st.columns([0.25,0.10])
-        col1.image('./images/mintic.png')
-
         st.title("Proyecto Final: Análisis con Machine Learning")
         st.subheader("Usabilidad Datos Abiertos")
-        self.render_form()
+        self.render_forms()
 
-    def render_form(self):
+    def render_forms(self):
+        self.render_manual_form()
+        self.render_csv_form()
+
+    def render_manual_form(self):
         with st.form("Métricas Dataset", clear_on_submit=False):
             Nombre = st.text_input("Nombre Dataset:")
             self.render_metrics_input()
@@ -45,7 +46,7 @@ class StreamlitApp:
                 st.session_state.countSubmitted = 0
 
             if submitted:
-                self.process_submission(Nombre)
+                self.process_manual_submission(Nombre)
 
     def render_metrics_input(self):
         c1, c2, c3 = st.columns(3)
@@ -71,7 +72,7 @@ class StreamlitApp:
             self.metricas[16] = st.number_input('Disponibilidad :', min_value=0.0, max_value=10.0, format="%.2f", step=0.01)
             self.metricas[17] = st.number_input('Unicidad :', min_value=0.0, max_value=10.0, format="%.2f", step=0.01)
 
-    def process_submission(self, Nombre):
+    def process_manual_submission(self, Nombre):
         metricas_modelo = {
             'confidencialidad': self.metricas[0], 
             'relevancia': self.metricas[1], 
@@ -107,8 +108,19 @@ class StreamlitApp:
                     st.success("✅ ¡Hecho!")
                     st.write(f'El dataset {Nombre} tiene un incentivo de uso de {result_df}')   
                 except Exception as ex:
-                    print(ex)
                     st.error("Algo salió mal", icon="🚨")
+    
+    def render_csv_form(self):
+        st.subheader("Cargar CSV con las califcaciones de calidad")
+        csv_file = st.file_uploader("Sube un archivo CSV", type=["csv"])
+        if csv_file:
+            df = pd.read_csv(csv_file, sep=';')
+            print(df)
+            st.write("Vista previa del DataFrame:")
+            st.write(df.head())
+            result_df = self.evaluator.predict(df)
+            st.success("✅ ¡Hecho!")
+            st.write(f'El dataset tiene un incentivo de uso de {result_df}')   
 
 if __name__ == "__main__":
     app = StreamlitApp()
